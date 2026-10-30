@@ -5,9 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Завод нейроагентов</title>
 <meta name="robots" content="noindex">
+<meta name="description" content="Презентация курса «Завод нейроагентов» одной страницей: программа, цены агентов, подарки и отзывы. Читается за пару минут.">
+<meta name="theme-color" content="#C2410C">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://enjoy-drops.netlify.app/zavod/">
+<meta property="og:title" content="Завод нейроагентов: презентация одной страницей">
+<meta property="og:description" content="Программа, цены агентов, подарки и отзывы курса. Одна страница вместо 61 слайда.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C2410C'/%3E%3Cpath d='M7 24V12l6 4v-4l6 4V8h6v16z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<noscript><style>[role="tabpanel"][hidden]{display:grid}.tabs{display:none}</style></noscript>
 <style>
 /* Идея: конвейер. Серый бетон, сигнальный оранжевый, моноширинные номера станций. Одна колонка, станции идут сверху вниз. */
 :root{
@@ -31,6 +41,7 @@ html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-text-size-adjust:100%}
 h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.01em}
 p{margin:0}
+a{color:var(--accent)}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
 .wrap{max-width:880px;margin:0 auto;padding:0 18px}
@@ -38,9 +49,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top nav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;max-width:880px;margin:0 auto;scrollbar-width:none}
 .top nav::-webkit-scrollbar{display:none}
-.top a{flex:none;font-size:13px;font-weight:600;text-decoration:none;color:var(--muted);padding:6px 12px;border-radius:99px;border:1px solid transparent;transition:.2s}
-.top a:hover{color:var(--ink)}
-.top a.on{background:var(--ink);color:var(--bg)}
+.top nav a{flex:none;font-size:13px;font-weight:600;text-decoration:none;color:var(--muted);padding:6px 12px;border-radius:99px;border:1px solid transparent;transition:.2s}
+.top nav a:hover{color:var(--ink)}
+.top nav a.on{background:var(--ink);color:var(--bg)}
 .prog{height:3px;background:var(--accent);transform-origin:left;transform:scaleX(0)}
 .hero{padding:40px 0 28px}
 .eyebrow{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
@@ -64,44 +75,48 @@ section{padding:44px 0 8px}
 .sec-h{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
 .sec-h h2{font-size:clamp(24px,6vw,36px)}
 .sec-h p{color:var(--muted);max-width:60ch}
+.ghost{align-self:flex-start;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600}
+.ghost:hover{border-color:var(--accent)}
+.tiles{display:grid;gap:10px}
+@media(min-width:620px){.tiles{grid-template-columns:repeat(3,1fr)}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.tile b{display:block;font:700 22px/1.1 var(--display);color:var(--accent);margin-bottom:6px}
+.tile span{font-size:15px;color:var(--muted)}
+.me{margin-top:10px;background:var(--ink);color:var(--bg);border-radius:16px;padding:16px;display:grid;gap:6px}
+.me strong{font:700 16px/1.3 var(--display)}
+.me p{font-size:15px;opacity:.85}
 .line{position:relative;display:grid;gap:12px;padding-left:34px}
 .line::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:2px;background:repeating-linear-gradient(var(--accent) 0 8px,transparent 8px 14px)}
-.st{position:relative;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;transition:transform .2s,border-color .2s,box-shadow .2s;display:block}
-.st::before{content:"";position:absolute;left:-29px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
-.st:hover{transform:translateX(4px);border-color:var(--accent);box-shadow:0 8px 24px -14px var(--accent)}
+details.st{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;transition:border-color .2s,box-shadow .2s}
+details.st::before{content:"";position:absolute;left:-29px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+details.st:hover,details.st[open]{border-color:var(--accent)}
+details.st:hover{box-shadow:0 8px 24px -14px var(--accent)}
+details.st.sprint{border-style:dashed}
+details.st>summary{list-style:none;cursor:pointer;padding:16px 56px 14px 16px;display:block;position:relative;border-radius:16px}
+details.st>summary::-webkit-details-marker{display:none}
+details.st>summary::after{content:"+";position:absolute;right:14px;top:14px;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;text-align:center;line-height:27px;font-size:18px;color:var(--accent);transition:.2s}
+details.st[open]>summary::after{content:"−";background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .st .n{font:500 12px/1 var(--mono);color:var(--accent);display:flex;justify-content:space-between;gap:8px}
 .st .tag{color:var(--muted)}
 .st h3{font-size:17px;margin:8px 0 6px}
-.st p{color:var(--muted);font-size:15px}
-.st .more{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--accent)}
-.st.sprint{border-style:dashed}
-dialog{border:0;padding:0;background:var(--surface);color:var(--ink);width:min(560px,calc(100% - 24px));max-height:calc(100% - 24px);border-radius:20px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
-dialog::backdrop{background:rgba(10,14,12,.55);backdrop-filter:blur(3px)}
-dialog[open]{animation:pop .25s ease-out}
-@keyframes pop{from{opacity:.4;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
-.dg{padding:22px 20px 18px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;max-height:calc(100vh - 40px)}
-.dg-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.dg h3{font-size:21px;margin-top:6px}
-.x{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;font-size:18px;line-height:1}
-.dg h4{margin:0 0 6px;font-size:14px;font-weight:600;color:var(--steel)}
-.dg ul{margin:0;padding-left:18px;display:grid;gap:5px}
-.dg li::marker{color:var(--accent)}
+.st summary p{color:var(--muted);font-size:15px}
+.body{padding:0 16px 16px;display:grid;gap:14px}
+.body h4{margin:0 0 6px;font-size:14px;font-weight:600;color:var(--steel)}
+.body ul{margin:0;padding-left:18px;display:grid;gap:5px}
+.body li::marker{color:var(--accent)}
 .out{background:var(--tint);border-radius:12px;padding:12px 14px;font-size:15px}
 .out b{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px;color:var(--accent)}
-.pn{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--line);padding-top:12px}
-.pn button{border:1px solid var(--line);background:transparent;border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600}
-.pn button:hover{border-color:var(--accent)}
-.pn button[disabled]{opacity:.35;cursor:default}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 16px}
 .chart{display:grid;gap:18px}
 .crow .lab{font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}
 .crow .lab span{font-family:var(--mono);font-weight:500;color:var(--accent);white-space:nowrap}
-.track{position:relative;height:26px;border-radius:8px;background:
-  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/28.5714% 100%, var(--bg)}
+.track{position:relative;height:26px;border-radius:8px;background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/28.5714% 100%, var(--bg)}
 .bar{position:absolute;top:4px;bottom:4px;border-radius:6px;background:var(--accent);transform-origin:left;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}
 .bar.open{background:linear-gradient(90deg,var(--accent) 70%,transparent)}
 .crow:nth-child(2) .bar{animation-delay:.12s}.crow:nth-child(3) .bar{animation-delay:.24s}
-.axis{display:flex;justify-content:space-between;font:500 11px/1 var(--mono);color:var(--muted);margin-top:8px;padding-right:14.3%}
+.axis{position:relative;height:16px;margin-top:8px;font:500 11px/1 var(--mono);color:var(--muted)}
+.axis span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.axis span:first-child{transform:none}
 .calc{margin-top:14px;display:grid;gap:10px}
 .calc h3{font-size:16px}
 .cr{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px}
@@ -113,16 +128,16 @@ dialog[open]{animation:pop .25s ease-out}
 .sum small{display:block;opacity:.7;font-size:12px}
 .sum b{display:block;font:700 22px/1.2 var(--display);margin-top:4px;font-variant-numeric:tabular-nums}
 .note{font-size:13px;color:var(--muted)}
-.wins{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
-@media(min-width:620px){.wins{grid-template-columns:repeat(4,1fr)}}
-.wins li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:4px}
-.wins b{font:700 20px/1.1 var(--display);color:var(--accent)}
+.wins{list-style:none;margin:0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.wins li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:4px;align-content:start}
+.wins b{font:700 20px/1.1 var(--display);color:var(--accent);white-space:nowrap}
 .wins span{font-size:14px;color:var(--muted)}
 .tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:12px}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600}
 .tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .vs{display:grid;gap:10px}
+.vs[hidden]{display:none}
 @media(min-width:620px){.vs{grid-template-columns:1fr 1fr}}
 .side{border-radius:16px;padding:16px;animation:rise .35s both}
 .side.a{background:var(--steel-tint)}
@@ -145,7 +160,7 @@ dialog[open]{animation:pop .25s ease-out}
 @media(min-width:620px){.conds{grid-template-columns:repeat(3,1fr)}}
 .cond{border:1px solid color-mix(in srgb,var(--bg) 30%,transparent);border-radius:12px;padding:10px 12px;font-size:14px}
 .cond b{display:block;font:500 11px/1 var(--mono);margin-bottom:6px;color:var(--accent)}
-footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
+footer{padding:40px 0 60px;color:var(--muted);font-size:13px;display:grid;gap:8px}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
@@ -155,6 +170,7 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
 <body>
 <div class="top">
   <nav id="nav" aria-label="Разделы">
+    <a href="#about">О версии</a>
     <a href="#put">Программа</a>
     <a href="#ceny">Цены агентов</a>
     <a href="#otzyvy">Отзывы</a>
@@ -166,24 +182,96 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
 
 <main class="wrap">
   <header class="hero">
-    <p class="eyebrow">Версия для чтения · закрытый спецпроект</p>
+    <p class="eyebrow">Презентация курса · версия для чтения</p>
     <h1>Завод <span>нейро&shy;агентов</span></h1>
-    <p class="lead">Обучение сборке AI-агентов: от установки инструментов до автономной команды и первых клиентов. Вся презентация на одной странице: листается за пару минут вместо 61 слайда.</p>
+    <p class="lead">Программа, цены, подарки и отзывы курса по сборке AI-агентов. Одна страница вместо 61 слайда, читается за пару минут.</p>
     <div class="stats">
       <div class="stat"><b>6</b><small>модулей</small></div>
       <div class="stat"><b>1</b><small>спринт к рынку</small></div>
       <div class="stat"><b>5</b><small>подарков</small></div>
-      <div class="stat"><b>3</b><small>условия гарантии</small></div>
+      <div class="stat"><b>3</b><small>условия стажировки</small></div>
     </div>
     <div class="compress" aria-hidden="true"><span class="mono">61 слайд</span><i></i><span class="mono">1 страница</span></div>
   </header>
 
+  <section id="about">
+    <div class="sec-h reveal">
+      <h2>Что изменилось по сравнению со слайдами</h2>
+    </div>
+    <div class="tiles reveal">
+      <div class="tile"><b>61 → 1</b><span>Программа, цены, подарки и отзывы собраны на одной странице. Повторяющиеся слайды-«карты курса» не нужны.</span></div>
+      <div class="tile"><b>7 станций</b><span>Каждый модуль раскрывается на месте. Можно открыть одну или все сразу.</span></div>
+      <div class="tile"><b>Считает сам</b><span>Калькулятор по ценам агентов и сравнение с Apple по вкладкам.</span></div>
+    </div>
+    <div class="me reveal">
+      <strong>Антон Суворов</strong>
+      <p>Собрал эту страницу с помощью Claude за один вечер. Содержание принадлежит авторам курса, я изменил только форму.</p>
+      <p>Хочу применять это на практике: готов к стажировке и к задачам команды. Напишите мне туда, откуда пришла ссылка.</p>
+    </div>
+  </section>
+
   <section id="put">
     <div class="sec-h reveal">
       <h2>Путь по станциям</h2>
-      <p>Нажмите на станцию, чтобы увидеть, что внутри. В окне можно листать вперёд и назад.</p>
+      <p>Нажмите на станцию, чтобы развернуть её.</p>
+      <button class="ghost" type="button" id="all">Раскрыть все</button>
     </div>
-    <div class="line" id="line"></div>
+    <div class="line">
+      <details class="st reveal" id="m1" open>
+        <summary><span class="n"><span>МОДУЛЬ 01</span><span class="tag"></span></span><h3>Готовимся к обучению</h3><p>Цель, точка А и мышление до первой установки.</p></summary>
+        <div class="body">
+          <div><h4>Диагностика точки А</h4><ul><li>Где вы сейчас по доходу</li><li>Сколько хотите зарабатывать</li><li>Сколько времени готовы вкладывать</li><li>Какие ограничения есть на самом деле</li></ul></div>
+          <div><h4>Мышление</h4><ul><li>Почему «просто разработать агента» не равно «зарабатывать»</li><li>Как не потерять мотивацию на старте и в процессе</li><li>Как поддерживать ресурсное состояние</li><li>Как двигаться к цели и не откладывать на «потом»</li></ul></div>
+          <div class="out"><b>Итог этапа</b>Чёткая финансовая цель.</div>
+        </div>
+      </details>
+      <details class="st reveal" id="m2">
+        <summary><span class="n"><span>МОДУЛЬ 02</span><span class="tag"></span></span><h3>Инструменты и первый Джарвис</h3><p>Рабочее пространство, Claude Code и Codex.</p></summary>
+        <div class="body">
+          <div><h4>Что делаете</h4><ul><li>Настраиваете рабочее пространство</li><li>Устанавливаете всё для своего нейроагента: Claude Code, Codex</li><li>Запускаете первого Джарвиса</li></ul></div>
+          <div><h4>Если что-то не получилось</h4><ul><li>Видеоинструкции и чек-листы</li><li>Готовый список сервисов</li><li>Поддержка в чате</li><li>Встреча с техспециалистом: куда нажать и что делать, если не выходит</li></ul></div>
+          <div><h4>Не технарь?</h4><ul><li>Код писать не нужно. Вы повторяете шаги по инструкции</li></ul></div>
+          <div class="out"><b>Итог этапа</b>Рабочее пространство полностью готово к созданию агента.</div>
+        </div>
+      </details>
+      <details class="st reveal" id="m3">
+        <summary><span class="n"><span>МОДУЛЬ 03</span><span class="tag"></span></span><h3>Создаём агента под реальные задачи</h3><p>Свой нейроагент, который решает вашу задачу.</p></summary>
+        <div class="body">
+          <div><h4>Как устроена работа</h4><ul><li>Каждый продукт собирается по простой инструкции</li><li>Делается вместе с командой курса</li><li>Разбирается на живой встрече</li></ul></div>
+          <div class="out"><b>Итог этапа</b>Готов ваш первый нейроагент под вашу задачу.</div>
+        </div>
+      </details>
+      <details class="st reveal" id="m4">
+        <summary><span class="n"><span>МОДУЛЬ 04</span><span class="tag"></span></span><h3>Собираем команду агентов</h3><p>Конструктор агентов и мультиагентные системы.</p></summary>
+        <div class="body">
+          <div><h4>Агент умеет</h4><ul><li>Понимать задачу и решать, что делать дальше</li><li>Искать информацию</li><li>Работать с файлами и инструментами</li><li>Выполнять цепочку действий и доводить до результата почти без вас</li></ul></div>
+          <div><h4>Чему научитесь</h4><ul><li>Собирать агентов с инструментами: поиск, файлы, таблицы, API, сервисы</li><li>Делать агентов-исследователей, менеджеров и аналитиков</li><li>Строить системы, где несколько агентов работают вместе</li><li>Делать «цифрового Джарвиса» под задачу</li></ul></div>
+          <div class="out"><b>Итог этапа</b>Один агент управляет сразу несколькими. По словам автора, это одни из самых дорогих AI-решений на рынке.</div>
+        </div>
+      </details>
+      <details class="st reveal" id="m5">
+        <summary><span class="n"><span>МОДУЛЬ 05</span><span class="tag"></span></span><h3>Встраиваем агента в работу</h3><p>Для себя, для команды или для другого человека.</p></summary>
+        <div class="body">
+          <div><h4>Два сценария</h4><ul><li>Агент в вашей работе: подключаете к задачам и нужным системам</li><li>Агент для другого человека: настраиваете и передаёте</li></ul></div>
+          <div class="out"><b>Итог этапа</b>Переход от технической сборки к реальной работе.</div>
+        </div>
+      </details>
+      <details class="st sprint reveal" id="sprint">
+        <summary><span class="n"><span>СПРИНТ</span><span class="tag"></span></span><h3>Показываем навык рынку</h3><p>Услуга, первые клиенты и регулярный доход.</p></summary>
+        <div class="body">
+          <div><h4>Три шага</h4><ul><li>Превращаете создание агентов в систему, которая приносит деньги каждый месяц, не начиная с нуля</li><li>Упаковываете предложение в понятную услугу, которую хотят покупать</li><li>Находите первых клиентов и учитесь продавать</li></ul></div>
+          <div class="out"><b>Итог этапа</b>Готовая услуга и первые продажи.</div>
+        </div>
+      </details>
+      <details class="st reveal" id="m6">
+        <summary><span class="n"><span>МОДУЛЬ 06</span><span class="tag">неделя 6</span></span><h3>Запускаем агента автономно</h3><p>Спецмодуль: система, которая работает без вас.</p></summary>
+        <div class="body">
+          <div><h4>Теория, 3 урока</h4><ul><li>Что такое автономность и какие задачи ей подходят</li><li>Перевод агентов в автономный режим</li><li>Настройка проверки автономных агентов</li></ul></div>
+          <div><h4>Практика</h4><ul><li>Готов и настроен главный автономный агент</li><li>К нему подключены автономные помощники</li><li>Настроены задачи для автономного режима</li><li>Подключены нужные скиллы</li></ul></div>
+          <div class="out"><b>Итог этапа</b>Все части соединены в систему, которая работает без вас.</div>
+        </div>
+      </details>
+    </div>
   </section>
 
   <section id="ceny">
@@ -193,33 +281,34 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
     </div>
     <div class="card reveal">
       <div class="chart" id="chart">
-        <div class="crow"><div class="lab">Простой агент под одну задачу <span>30–50 тыс. ₽</span></div><div class="track"><i class="bar" style="left:8.57%;width:5.71%"></i></div></div>
-        <div class="crow"><div class="lab">С инструментами, памятью и действиями <span>70–100 тыс. ₽</span></div><div class="track"><i class="bar" style="left:20%;width:8.57%"></i></div></div>
-        <div class="crow"><div class="lab">Мультиагентные и комплексные решения <span>100–300+ тыс. ₽</span></div><div class="track"><i class="bar open" style="left:28.57%;width:62%"></i></div></div>
+        <div class="crow"><div class="lab">Простой агент под одну задачу <span>30–50 тыс.&nbsp;₽</span></div><div class="track"><i class="bar" style="left:8.57%;width:5.71%"></i></div></div>
+        <div class="crow"><div class="lab">С инструментами, памятью и действиями <span>70–100 тыс.&nbsp;₽</span></div><div class="track"><i class="bar" style="left:20%;width:8.57%"></i></div></div>
+        <div class="crow"><div class="lab">Мультиагентные и комплексные решения <span>100–300+ тыс.&nbsp;₽</span></div><div class="track"><i class="bar open" style="left:28.57%;width:57.14%"></i></div></div>
       </div>
-      <div class="axis mono" aria-hidden="true"><span>0</span><span>100 тыс.</span><span>200 тыс.</span><span>300 тыс. ₽</span></div>
+      <div class="axis" aria-hidden="true"><span style="left:0">0</span><span style="left:28.5714%">100</span><span style="left:57.1429%">200</span><span style="left:85.7143%">300 тыс.&nbsp;₽</span></div>
     </div>
     <div class="card calc reveal" id="calc">
-      <h3>Прикинуть выручку</h3>
-      <p class="note">Сколько агентов каждого типа вы бы продали? Считается по диапазонам выше.</p>
+      <h3>Что это значит в рублях</h3>
+      <p class="note">Выберите, сколько агентов каждого типа вы бы собрали. Это арифметика из цифр презентации, а не прогноз дохода.</p>
       <div class="cr"><span>Простые</span><div class="step"><button type="button" data-k="0" data-d="-1" aria-label="Меньше простых">−</button><output id="c0">1</output><button type="button" data-k="0" data-d="1" aria-label="Больше простых">+</button></div></div>
       <div class="cr"><span>С памятью и действиями</span><div class="step"><button type="button" data-k="1" data-d="-1" aria-label="Меньше средних">−</button><output id="c1">1</output><button type="button" data-k="1" data-d="1" aria-label="Больше средних">+</button></div></div>
       <div class="cr"><span>Мультиагентные</span><div class="step"><button type="button" data-k="2" data-d="-1" aria-label="Меньше мультиагентных">−</button><output id="c2">1</output><button type="button" data-k="2" data-d="1" aria-label="Больше мультиагентных">+</button></div></div>
-      <div class="sum"><small>Диапазон по презентации</small><b id="total" aria-live="polite">200 000 – 450 000+ ₽</b></div>
-      <p class="note">Это арифметика из цифр презентации, а не прогноз дохода. Где-то в конце диапазона стоит «300 000 ₽ и выше», поэтому верхняя граница открытая.</p>
+      <div class="sum"><small>Диапазон по цифрам презентации</small><b id="total" aria-live="polite">200–450+ тыс.&nbsp;₽</b></div>
+      <p class="note">Для мультиагентных решений верхняя граница открытая: в презентации указано «300 тыс. ₽ и выше».</p>
     </div>
   </section>
 
   <section id="otzyvy">
     <div class="sec-h reveal">
       <h2>Что получают студенты</h2>
-      <p>Отзывы из презентации: первые сделки, предоплаты и продажи.</p>
+      <p>Сообщения студентов из презентации: первые сделки, предоплаты и продажи.</p>
     </div>
     <ul class="wins reveal">
-      <li><b>10 000 ₽</b><span>предоплата за проект для мебельного производства после живой встречи</span></li>
-      <li><b>5 000 ₽</b><span>оплата за видео и фото</span></li>
-      <li><b>8 000 ₽ и 1 000 ₽</b><span>переводы и предоплата за закрепление скидки</span></li>
-      <li><b>100 000 ₽</b><span>первая продажа: приложение с подпиской, сдано клиенту</span></li>
+      <li><b>10&nbsp;000&nbsp;₽</b><span>предоплата за проект для мебельного производства после живой встречи</span></li>
+      <li><b>5&nbsp;000&nbsp;₽</b><span>оплата за видео и фото</span></li>
+      <li><b>8&nbsp;000&nbsp;₽</b><span>входящий перевод от клиента</span></li>
+      <li><b>1&nbsp;000&nbsp;₽</b><span>предоплата за закрепление скидки</span></li>
+      <li><b>100&nbsp;000&nbsp;₽</b><span>первая продажа: приложение с подпиской, сдано клиенту</span></li>
     </ul>
   </section>
 
@@ -228,24 +317,34 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
       <h2>Завод джарвисов — это Apple для AI-агентов</h2>
       <p>Конструктор: нажимаете кнопку, и через несколько минут в вашем Telegram появляется агент. Пять сравнений из презентации.</p>
     </div>
-    <div class="tabs" role="tablist" id="tabs"></div>
-    <div class="vs" id="vs" aria-live="polite"></div>
+    <div class="tabs" role="tablist" aria-label="Сравнения с Apple" id="tabs">
+      <button class="tab" role="tab" type="button" id="t0" aria-controls="p0" aria-selected="true">Готовый продукт</button>
+      <button class="tab" role="tab" type="button" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Новые модели</button>
+      <button class="tab" role="tab" type="button" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Обновления</button>
+      <button class="tab" role="tab" type="button" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">App Store</button>
+      <button class="tab" role="tab" type="button" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">Сервис</button>
+    </div>
+    <div class="vs" role="tabpanel" id="p0" aria-labelledby="t0"><div class="side a"><small>Apple</small><p>Продаёт готовый iPhone, а не процессор, экран и батарейку по отдельности. Он работает из коробки.</p></div><div class="side b"><small>Завод джарвисов</small><p>Не нужно писать код, разбираться в терминале и искать скиллы. Нажали кнопку и получили готового агента.</p></div></div>
+    <div class="vs" role="tabpanel" id="p1" aria-labelledby="t1" hidden><div class="side a"><small>Apple</small><p>Выходит новая модель, и она умеет больше предыдущей.</p></div><div class="side b"><small>Завод джарвисов</small><p>Выходят новые версии агентов: память мощнее, появляются новые возможности, выше скорость.</p></div></div>
+    <div class="vs" role="tabpanel" id="p2" aria-labelledby="t2" hidden><div class="side a"><small>Apple</small><p>iOS обновляется сама, и телефон становится лучше, чем при покупке.</p></div><div class="side b"><small>Завод джарвисов</small><p>Раз в неделю выходит обновление для всех агентов. Настройки, память и характер агента не стираются.</p></div></div>
+    <div class="vs" role="tabpanel" id="p3" aria-labelledby="t3" hidden><div class="side a"><small>Apple</small><p>Телефон звонит и фотографирует, а приложения превращают его в навигатор, студию или банк.</p></div><div class="side b"><small>Завод джарвисов</small><p>Раздел «Прокачать агентов»: копирайтинг, монтаж видео, поиск трендов, работа с сервером. Один агент, сколько угодно профессий.</p></div></div>
+    <div class="vs" role="tabpanel" id="p4" aria-labelledby="t4" hidden><div class="side a"><small>Apple</small><p>Что-то сломалось — идёте в поддержку, а не выбрасываете телефон.</p></div><div class="side b"><small>Завод джарвисов</small><p>Есть поддержка, диагностика и база знаний. С технической проблемой вы не один.</p></div></div>
     <p class="note" style="margin-top:12px">Обновления завода после обучения продаются отдельно. На время обучения они входят без доплаты. Агентов ставят на ваш сервер.</p>
   </section>
 
   <section id="podarki">
     <div class="sec-h reveal">
       <h2>Пять подарков</h2>
-      <p>Что обещано сверх программы.</p>
+      <p>Что автор обещает сверх программы.</p>
     </div>
     <div class="gifts">
       <article class="gift reveal"><div class="num">1</div><h3>База знаний на год</h3><p>Инструменты, промпты, кейсы и обновления. Обычно доступ только на время обучения.</p><span class="chip">12 месяцев</span></article>
       <article class="gift reveal"><div class="num">2</div><h3>Codex Plus на месяц</h3><p>Claude Code и Codex подключаются из России не у всех. Специалист поможет с регистрацией и настройкой и оплатит подписку на 1 месяц.</p><span class="chip">первым 10 оплатившим</span></article>
-      <article class="gift reveal"><div class="num">3</div><h3>Конструктор джарвисов</h3><p>Агент в Telegram без кода и терминала. Еженедельные обновления, раздел «Прокачать агентов» со скиллами, поддержка и база знаний.</p></article>
+      <article class="gift reveal"><div class="num">3</div><h3>Конструктор джарвисов</h3><p>Собирает агента в Telegram по кнопке, без кода и терминала. Автор обещает еженедельные обновления, раздел «Прокачать агентов» со скиллами, поддержку и базу знаний.</p></article>
       <article class="gift reveal"><div class="num">4</div><h3>Тренд-радар</h3><p>Каждую неделю подборка свежих решений для вайбкодинга. Плюс 2 урока: как ставить скиллы и как создавать свои с нуля.</p><span class="chip">до конца года</span></article>
-      <article class="gift big reveal"><div class="num">5</div><h3>Стажировка в компании и первый клиент</h3><p>Главный подарок. Обещан каждому, кто выполнит три условия, без розыгрыша и отбора лучших.</p>
+      <article class="gift big reveal"><div class="num">5</div><h3>Стажировка в компании и первый клиент</h3><p>Главный подарок. По словам автора, его получает каждый, кто выполнит три условия, без розыгрыша и отбора лучших.</p>
         <div class="conds">
-          <div class="cond"><b>01</b>Оформить участие в день предложения: 22 октября 2026</div>
+          <div class="cond"><b>01</b>Оформить участие в день старта набора</div>
           <div class="cond"><b>02</b>Полностью пройти обучение</div>
           <div class="cond"><b>03</b>Создать итоговый проект и защитить его перед автором</div>
         </div>
@@ -254,89 +353,51 @@ footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
     </div>
   </section>
 
-  <footer>Версия для чтения презентации «Завод нейроагентов: от идеи до денег», 61 слайд автора. Вёрстка и интерактив: Антон Суворов, собрано с помощью Claude.</footer>
+  <footer>
+    <p>Источник: презентация «Завод нейроагентов: от идеи до денег», 61 слайд. Содержание принадлежит авторам курса, изменена только форма. Вёрстка: Антон Суворов, собрано с помощью Claude.</p>
+    <p><a href="#">Наверх ↑</a></p>
+  </footer>
 </main>
 
-<dialog id="dlg" aria-labelledby="dt"><div class="dg" id="dg"></div></dialog>
-
 <script>
-const steps=[
- {n:'01',t:'Готовимся к обучению',s:'Цель, точка А и мышление до первой установки.',g:[
-  ['Диагностика точки А',['Где вы сейчас по доходу','Сколько хотите зарабатывать','Сколько времени готовы вкладывать','Какие ограничения есть на самом деле']],
-  ['Мышление',['Почему «просто разработать агента» не равно «зарабатывать»','Как не потерять мотивацию на старте и в процессе','Как поддерживать ресурсное состояние','Как двигаться к цели и не откладывать на «потом»']]],
-  o:'Чёткая финансовая цель.'},
- {n:'02',t:'Инструменты и первый Джарвис',s:'Рабочее пространство, Claude Code и Codex.',g:[
-  ['Что делаете',['Настраиваете рабочее пространство','Устанавливаете всё для своего нейроагента: Claude Code, Codex','Запускаете первого Джарвиса']],
-  ['Если что-то не получилось',['Видеоинструкции и чек-листы','Готовый список сервисов','Поддержка в чате','Встреча с техспециалистом: куда нажать и что делать, если не выходит']],
-  ['Не технарь?',['Код писать не нужно. Вы повторяете шаги по инструкции']]],
-  o:'Рабочее пространство полностью готово к созданию агента.'},
- {n:'03',t:'Создаём агента под реальные задачи',s:'Свой нейроагент, который решает вашу задачу.',g:[
-  ['Как устроена работа',['Каждый продукт собирается по простой инструкции','Делается вместе с командой курса','Разбирается на живой встрече']]],
-  o:'Готов ваш первый нейроагент под вашу задачу.'},
- {n:'04',t:'Собираем команду агентов',s:'Конструктор агентов и мультиагентные системы.',g:[
-  ['Агент умеет',['Понимать задачу и решать, что делать дальше','Искать информацию','Работать с файлами и инструментами','Выполнять цепочку действий и доводить до результата почти без вас']],
-  ['Чему научитесь',['Собирать агентов с инструментами: поиск, файлы, таблицы, API, сервисы','Делать агентов-исследователей, менеджеров и аналитиков','Строить системы, где несколько агентов работают вместе','Делать «цифрового Джарвиса» под задачу']]],
-  o:'Один агент управляет сразу несколькими. Это самые дорогие решения в диапазоне цен.'},
- {n:'05',t:'Встраиваем агента в работу',s:'Для себя, для команды или для другого человека.',g:[
-  ['Два сценария',['Агент в вашей работе: подключаете к задачам и нужным системам','Агент для другого человека: настраиваете и передаёте']]],
-  o:'Переход от технической сборки к реальной работе.'},
- {n:'Спринт',t:'Показываем навык рынку',s:'Услуга, первые клиенты и регулярный доход.',sp:1,g:[
-  ['Три шага',['01. Превращаете создание агентов в систему, которая приносит деньги каждый месяц, не начиная с нуля','02. Упаковываете предложение в понятную услугу, которую хотят покупать','03. Находите первых клиентов и учитесь продавать']]],
-  o:'Готовая услуга и первые продажи.'},
- {n:'06',t:'Запускаем агента автономно',s:'Спецмодуль: система, которая работает без вас.',tag:'неделя 6',g:[
-  ['Теория, 3 урока',['Что такое автономность и какие задачи ей подходят','Перевод агентов в автономный режим','Настройка проверки автономных агентов']],
-  ['Практика',['Готов и настроен главный автономный агент','К нему подключены автономные помощники','Настроены задачи для автономного режима','Подключены нужные скиллы']]],
-  o:'Все части соединены в систему, которая работает без вас.'}
-];
 const $=s=>document.querySelector(s);
-const dlg=$('#dlg'),dg=$('#dg');let cur=0;
-$('#line').innerHTML=steps.map((s,i)=>`<button class="st reveal${s.sp?' sprint':''}" type="button" data-i="${i}"><span class="n"><span>${s.sp?'СПРИНТ':'МОДУЛЬ '+s.n}</span><span class="tag">${s.tag||''}</span></span><h3>${s.t}</h3><p>${s.s}</p><span class="more">Что внутри →</span></button>`).join('');
-function show(i){
-  cur=i;const s=steps[i];
-  dg.innerHTML=`<div class="dg-top"><div><span class="eyebrow">${s.sp?'Спринт':'Модуль '+s.n}</span><h3 id="dt">${s.t}</h3></div><button class="x" type="button" id="cl" aria-label="Закрыть">✕</button></div>`+
-   s.g.map(g=>`<div><h4>${g[0]}</h4><ul>${g[1].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')+
-   `<div class="out"><b>Итог этапа</b>${s.o}</div><div class="pn"><button type="button" id="pv" ${i===0?'disabled':''}>← Назад</button><button type="button" id="nx" ${i===steps.length-1?'disabled':''}>Дальше →</button></div>`;
-  $('#cl').onclick=()=>dlg.close();
-  $('#pv').onclick=()=>show(cur-1);$('#nx').onclick=()=>show(cur+1);
-  dg.scrollTop=0;
-}
-$('#line').addEventListener('click',e=>{
-  const b=e.target.closest('.st');if(!b)return;
-  show(+b.dataset.i);
-  try{dlg.showModal()}catch(_){dlg.setAttribute('open','')}
-});
-dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 
+/* станции */
+const items=[...document.querySelectorAll('details.st')];
+const all=$('#all');let bulk=false;
+const sync=()=>{all.textContent=items.every(d=>d.open)?'Свернуть все':'Раскрыть все'};
+all.addEventListener('click',()=>{const o=!items.every(d=>d.open);bulk=true;items.forEach(d=>d.open=o);sync();setTimeout(()=>{bulk=false},50)});
+items.forEach(d=>d.addEventListener('toggle',()=>{sync();if(d.open&&!bulk){try{history.replaceState(null,'','#'+d.id)}catch(_){}}}));
+const openHash=()=>{const d=items.find(x=>'#'+x.id===location.hash);if(d){d.open=true;d.scrollIntoView({block:'start'})}};
+openHash();addEventListener('hashchange',openHash);sync();
+
+/* калькулятор */
 const lo=[30,70,100],hi=[50,100,300],cnt=[1,1,1];
-const fmt=n=>(n*1000).toLocaleString('ru-RU').replace(/ /g,' ');
+const fmt=n=>n.toLocaleString('ru-RU');
 function calc(){
   cnt.forEach((c,i)=>$('#c'+i).textContent=c);
   const a=cnt.reduce((s,c,i)=>s+c*lo[i],0),b=cnt.reduce((s,c,i)=>s+c*hi[i],0);
-  $('#total').textContent=a===0&&b===0?'0 ₽':fmt(a)+' – '+fmt(b)+(cnt[2]>0?'+':'')+' ₽';
+  $('#total').textContent=a===0?'0 ₽':fmt(a)+'–'+fmt(b)+(cnt[2]>0?'+':'')+' тыс. ₽';
 }
 $('#calc').addEventListener('click',e=>{
   const b=e.target.closest('button[data-k]');if(!b)return;
   const k=+b.dataset.k;cnt[k]=Math.max(0,Math.min(20,cnt[k]+ +b.dataset.d));calc();
 });
 
-const pairs=[
- ['Готовый продукт','Apple продаёт готовый iPhone, а не процессор, экран и батарейку по отдельности. Он работает из коробки.','Не пишете код и не разбираетесь в терминале, не ищете скиллы. Нажали кнопку и получили готового агента.'],
- ['Новые модели','Выходит новая модель, и она умеет больше предыдущей.','Выходят новые версии агентов: память мощнее, появляются новые возможности, выше скорость.'],
- ['Обновления','iOS обновляется сама, и телефон становится лучше, чем при покупке.','Раз в неделю выходит обновление для всех агентов. Настройки, память и характер агента не стираются.'],
- ['App Store','Телефон звонит и фотографирует, а приложения превращают его в навигатор, студию или банк.','Раздел «Прокачать агентов»: копирайтинг, монтаж видео, поиск трендов, работа с сервером. Один агент, сколько угодно профессий.'],
- ['Сервис','Что-то сломалось — идёте в поддержку, а не выбрасываете телефон.','Есть поддержка, диагностика и база знаний. С технической проблемой вы не один.']
-];
-let tab=0;
-$('#tabs').innerHTML=pairs.map((p,i)=>`<button class="tab" role="tab" type="button" data-i="${i}" aria-selected="${i===0}">${p[0]}</button>`).join('');
-function drawTab(){
-  const p=pairs[tab];
-  $('#vs').innerHTML=`<div class="side a"><small>Apple</small><p>${p[1]}</p></div><div class="side b"><small>Завод джарвисов</small><p>${p[2]}</p></div>`;
-  document.querySelectorAll('.tab').forEach((t,i)=>t.setAttribute('aria-selected',i===tab));
+/* вкладки */
+const tabs=[...document.querySelectorAll('.tab')];
+function pick(i,focus){
+  tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;$('#p'+j).hidden=j!==i});
+  if(focus)tabs[i].focus();
 }
-$('#tabs').addEventListener('click',e=>{const t=e.target.closest('.tab');if(!t)return;tab=+t.dataset.i;drawTab()});
-drawTab();
-calc();
+tabs.forEach((t,i)=>t.addEventListener('click',()=>pick(i)));
+$('#tabs').addEventListener('keydown',e=>{
+  const i=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');
+  if(e.key==='ArrowRight'){e.preventDefault();pick((i+1)%tabs.length,true)}
+  if(e.key==='ArrowLeft'){e.preventDefault();pick((i-1+tabs.length)%tabs.length,true)}
+});
 
+/* прогресс и активный раздел */
 const prog=$('#prog');
 const onScroll=()=>{const h=document.documentElement;const m=h.scrollHeight-h.clientHeight;prog.style.transform=`scaleX(${m>0?Math.min(1,h.scrollTop/m):0})`};
 addEventListener('scroll',onScroll,{passive:true});onScroll();
