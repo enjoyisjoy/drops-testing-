@@ -1,6 +1,6 @@
 // Minimal service worker: makes the page installable and keeps it opening offline.
-var CACHE = 'peak-v1';
-var FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon.svg'];
+var CACHE = 'peak-v2';
+var FILES = ['./', 'index.html', 'manifest.webmanifest', 'logo.png', 'icon-192.png'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(FILES); }));

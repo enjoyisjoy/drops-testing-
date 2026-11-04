@@ -6,7 +6,8 @@
 <meta name="theme-color" content="#0b2a31">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>The Peak Racquet Park</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,11 +55,9 @@ a { color: inherit; }
 
 /* header */
 header.top { position: sticky; top: 0; z-index: 10; background: var(--hero); color: var(--hero-text); border-bottom: 1px solid rgba(255,255,255,.12); }
-header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding-top: 6px; padding-bottom: 6px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo svg { width: 30px; height: 30px; flex: none; }
-.logo b { display: block; font-family: var(--display); font-weight: 700; letter-spacing: .14em; font-size: 17px; line-height: 1.1; }
-.logo small { display: block; font-family: var(--display); font-weight: 500; letter-spacing: .3em; font-size: 9.5px; opacity: .8; line-height: 1.3; }
+.logo img { display: block; width: 52px; height: 52px; border-radius: 50%; }
 nav.main { display: none; gap: 22px; font-size: 15px; font-weight: 500; }
 nav.main a { text-decoration: none; opacity: .85; padding: 4px 0; }
 nav.main a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
@@ -76,8 +75,10 @@ nav.main a:hover { opacity: 1; text-decoration: underline; text-underline-offset
 .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .btn { display: inline-block; font: 600 16px var(--display); text-decoration: none; padding: 12px 24px; border-radius: 999px; border: 2px solid transparent; }
 .btn.primary { background: var(--ball); color: var(--ball-ink); }
+.btn.wa { background: #25d366; color: #06230f; }
 .btn.ghost { border-color: rgba(255,255,255,.45); color: var(--hero-text); }
 .btn:hover { transform: translateY(-1px); }
+.card .btn { align-self: flex-start; }
 .facts { display: flex; flex-wrap: wrap; gap: 12px 32px; margin: 36px 0 0; padding: 0; list-style: none; }
 .facts li { display: flex; flex-direction: column; }
 .facts strong { font: 700 30px/1.1 var(--display); color: var(--ball); font-variant-numeric: tabular-nums; }
@@ -147,10 +148,8 @@ footer .wrap { display: grid; gap: 6px; opacity: .85; }
 
 <header class="top">
   <div class="wrap">
-    <!-- LOGO SLOT: replace this wordmark with the real logo image when it arrives -->
     <a class="logo" href="#top" aria-label="The Peak Racquet Park">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 27 L13 6 L18 15 L22 9 L30 27 Z" fill="#d4ef2f"/><path d="M13 6 L18 15 L9 15 Z" fill="#0b2a31" opacity=".35"/></svg>
-      <span><b>THE PEAK</b><small>RACQUET PARK</small></span>
+      <img src="logo.png" width="52" height="52" alt="The Peak Racquet Park">
     </a>
     <nav class="main" aria-label="Main">
       <a href="#courts" data-th="คอร์ท">Courts</a>
@@ -173,7 +172,7 @@ footer .wrap { display: grid; gap: 6px; opacity: .85; }
       <h1 data-th="แปดคอร์ท สองกีฬา หนึ่งสนาม">Eight courts. Two games. One park.</h1>
       <p class="lead" data-th="พิกเกิลบอล 4 คอร์ท และเทนนิส 4 คอร์ท ที่ Peylaa Phuket จองรายชั่วโมง ชวนเพื่อนมาเล่นได้เลย">Four pickleball courts and four tennis courts at Peylaa Phuket. Book by the hour and bring your friends.</p>
       <div class="btns">
-        <a class="btn primary" href="#book" data-th="จองคอร์ท">Book a court</a>
+        <a class="btn wa" href="https://wa.me/66656505195?text=Hello%21%20I%20would%20like%20to%20book%20a%20court%20at%20The%20Peak%20Racquet%20Park." data-wa data-th="จองผ่าน WhatsApp">Book on WhatsApp</a>
         <a class="btn ghost" href="#prices" data-th="ดูราคา">See prices</a>
       </div>
       <ul class="facts">
@@ -350,21 +349,18 @@ footer .wrap { display: grid; gap: 6px; opacity: .85; }
       <article class="card">
         <ol class="steps">
           <li data-th="เลือกกีฬา วัน และเวลา">Pick a sport, a date and a time.</li>
-          <li data-th="ส่งข้อความหาเราทาง LINE หรือ WhatsApp พร้อมจำนวนผู้เล่น">Message us on LINE or WhatsApp with the number of players.</li>
+          <li data-th="ส่งข้อความหาเราทาง WhatsApp พร้อมจำนวนผู้เล่น">Message us on WhatsApp with the number of players.</li>
           <li data-th="เรายืนยันคอร์ทและกันเวลาไว้ให้คุณ">We confirm your court and hold the slot.</li>
         </ol>
+        <a class="btn wa" href="https://wa.me/66656505195?text=Hello%21%20I%20would%20like%20to%20book%20a%20court%20at%20The%20Peak%20Racquet%20Park." data-wa data-th="จองผ่าน WhatsApp">Book on WhatsApp</a>
       </article>
       <article class="card contact" id="contact">
         <h3 data-th="ติดต่อเรา">Contact</h3>
         <dl>
-          <dt>LINE</dt><dd>@thepeakracquet</dd>
-          <dt>WhatsApp</dt><dd>+66 00 000 0000</dd>
-          <dt data-th="โทร">Phone</dt><dd>+66 00 000 0000</dd>
-          <dt data-th="อีเมล">Email</dt><dd>hello@example.com</dd>
+          <dt>WhatsApp</dt><dd>+66 65 650 5195</dd>
           <dt data-th="เวลาเปิด">Hours</dt><dd data-th="ทุกวัน 07:00–22:00 น.">Daily 07:00–22:00</dd>
           <dt data-th="ที่ตั้ง">Find us</dt><dd data-th="The Peak Racquet Park, Peylaa Phuket, Autograph Collection Residences จังหวัดภูเก็ต">The Peak Racquet Park, Peylaa Phuket, Autograph Collection Residences, Phuket</dd>
         </dl>
-        <p class="note"><span class="sample" data-th="ตัวอย่าง">Sample</span><span data-th="ข้อมูลติดต่อและเวลาเปิดเป็นข้อมูลตัวอย่าง">Contact details and hours are placeholders.</span></p>
       </article>
     </div>
   </div>
@@ -392,6 +388,10 @@ footer .wrap { display: grid; gap: 6px; opacity: .85; }
     document.title = titles[lang];
     btnEn.setAttribute('aria-pressed', String(lang === 'en'));
     btnTh.setAttribute('aria-pressed', String(lang === 'th'));
+    var msg = lang === 'th' ? 'สวัสดี ต้องการจองคอร์ทที่ The Peak Racquet Park' : 'Hello! I would like to book a court at The Peak Racquet Park.';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-wa]'), function (a) {
+      a.href = 'https://wa.me/66656505195?text=' + encodeURIComponent(msg);
+    });
     if (save) { try { localStorage.setItem('peak-lang', lang); } catch (e) {} }
   }
 
